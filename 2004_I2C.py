@@ -1,6 +1,7 @@
 #####################################################################################
 # The display 2004 works on the I2C bus, it has the address 3f.                     #
 # The device address can be viewed by executing the command "sudo i2cdetect-y 2"    #
+# on the display you will see your current time, UTC time, date and your IP address #
 # autor - Pavel (Pavelectric) pavelectric@mail.ru                                   #
 #####################################################################################
 
