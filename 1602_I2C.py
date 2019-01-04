@@ -1,5 +1,6 @@
 #####################################################################################
 # The display 1602 works on the I2C bus, it has the address 3f.                     #
+# The following pins are involved - 2(VCC), 6(GND), 3(SDA), 5(SCL)                  #
 # The device address can be viewed by executing the command "sudo i2cdetect-y 2"    #
 # You will see your current time and date on the display.                           #
 # Autor - Pavel (Pavelectric) pavelectric@mail.ru                                   #
