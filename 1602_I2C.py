@@ -89,7 +89,7 @@ def main():
 
     # Send some test
     lcd_string(strftime('DATE  ''%d %b %Y'),LCD_LINE_1)
-    lcd_string(strftime('LOCAL ''%H:%M:%S'),LCD_LINE_2)
+    lcd_string(strftime('UTC   ''%H:%M:%S'),LCD_LINE_2)
    
     time.sleep(0)
 
