@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- # вроде как разрешает русские буквы в программе
 #####################################################################################
 # The oled display 128x64 works on the I2C bus, it has the address 3c               #
-# The following pins are involved - 2(VCC), 6(GND), 3(SDA), 5(SCL)                  #
+# The following pins are involved - 1(3.3V), 6(GND), 3(SDA), 5(SCL)                  #
 # Bme280 it has the address 0x76                                                    #
 # GPS reciever Ublox m8n, work on GPSG service, adress /dev/ttyS4                   #
 # The device address can be viewed by executing the command "sudo i2cdetect-y 2"    #
