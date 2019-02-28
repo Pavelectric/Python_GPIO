@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- # вроде как разрешает русские буквы в программе
+#####################################################################################
+# The oled display 128x64 works on the I2C bus, it has the address 3c               #
+# The following pins are involved - 2(VCC), 6(GND), 3(SDA), 5(SCL)                  #
+# Bme280 it has the address 0x76                                                    #
+# GPS reciever Ublox m8n, work on GPSG service, adress /dev/ttyS4                   #
+# The device address can be viewed by executing the command "sudo i2cdetect-y 2"    #
+# You will see your current time and date on the display.                           #
+# Autor - Pavel (Pavelectric) pavelectric@mail.ru                                   #
+#####################################################################################
+
 import bme280 # библиотека погодной платы
 from device import ssd1306  # библиотека Oled дисплея
 from render import canvas
