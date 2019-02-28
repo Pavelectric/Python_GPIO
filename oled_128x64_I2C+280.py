@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #####################################################################################
 # The oled display 128x64 works on the I2C bus, it has the address 3c               #
-# The following pins are involved - 2(VCC), 6(GND), 3(SDA), 5(SCL)                  #
+# The following pins are involved - 1(3.3V), 6(GND), 3(SDA), 5(SCL)                  #
 # Bme280 it has the address 0x76                                                    #
 # The device address can be viewed by executing the command "sudo i2cdetect-y 2"    #
 # You will see your current time and date on the display.                           #
