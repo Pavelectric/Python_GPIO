@@ -9,7 +9,7 @@
 # Autor - Pavel (Pavelectric) pavelectric@mail.ru                                   #
 #####################################################################################
 
-import bme280
+import bme280 # weather sensor library
 from device import ssd1306
 from render import canvas
 from PIL import ImageFont
@@ -17,17 +17,16 @@ from time import strftime, gmtime, sleep
 import subprocess
 
 
-device = ssd1306(port=2, address=0x3C)
-font = ImageFont.load_default()
-font_ra = ImageFont.truetype('OpenSans-Regular.ttf', 12)
-font2 = ImageFont.truetype('fontawesome-webfont.ttf', 14)
-font_cl = ImageFont.truetype('OpenSans-Regular.ttf', 32)
+device = ssd1306(port=2, address=0x3C) # display in port 2 with adress 0x3C
+font = ImageFont.load_default() # font default
+font_ra = ImageFont.truetype('OpenSans-Regular.ttf', 12) # font 1
+font2 = ImageFont.truetype('fontawesome-webfont.ttf', 14) # font 2
+font_cl = ImageFont.truetype('OpenSans-Regular.ttf', 32) # font 3
 
 try:
     while True:
 
         temperature,pressure,humidity = bme280.readBME280All() #weather sensor initialization
-
         cmd = "hostname -I | cut -d\' \' -f1 | head --bytes -1" # command to get IP adress
         IP = subprocess.check_output(cmd, shell = True )
          
