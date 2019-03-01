@@ -26,35 +26,21 @@ font_cl = ImageFont.truetype('OpenSans-Regular.ttf', 32)
 try:
     while True:
 
-        temperature,pressure,humidity = bme280.readBME280All()
+        temperature,pressure,humidity = bme280.readBME280All() #weather sensor initialization
 
-        cmd = "hostname -I | cut -d\' \' -f1 | head --bytes -1"
+        cmd = "hostname -I | cut -d\' \' -f1 | head --bytes -1" # command to get IP adress
         IP = subprocess.check_output(cmd, shell = True )
-#    cmd = "df -h | awk '$NF==\"/\"{printf \"%d/%dG %s\", $3,$2,$5}'"
-        cmd = "df -h | awk '$NF==\"/\"{printf \"%s\", $5}'"
-        Disk = subprocess.check_output(cmd, shell = True )
-        cmd = "cat /sys/class/thermal/thermal_zone0/temp | cut -c 1-2"
-        Temperature = subprocess.check_output(cmd, shell = True )
-  
+         
         with canvas(device) as draw:
-            draw.text((0, 0), ("MSK"), font=font_ra, fill=255)
-            draw.text((40, 0), strftime('%H : %M : %S'),font=font_ra, fill=255)
-#        draw.text((0, 16), ("UTC"),font=font_ra, fill=255)
-#        draw.text((40, 16), strftime('%H : %M : %S',gmtime()),font=font_ra, fill=255)
-            draw.text((0, 16), unicode("Дата",'utf-8'),font=font_ra, fill=255)
-            draw.text((40, 16), strftime('%d . %m . %y'),font=font_ra, fill=255)
-            draw.text((0, 33), unichr(61931), font=font2, fill=255) #61931
-#        draw.text((0, 33), unicode("Адрес",'utf-8'),font=font_ra, fill=255)
-            draw.text((40, 33), str(IP), font=font_ra, fill=255)        
-#        draw.text((2, 50), unichr(62152), font=font2, fill=255) #61888 диск 62152 температура
-#            draw.text((0, 49), unicode("Диск",'utf-8'),font=font_ra, fill=255)
-#        draw.text((15, 50), str(Temperature), font=font_ra, fill=255)
-#        draw.text((30, 50), chr(176) + "C", font=font_ra, fill=255)
-#        draw.text((53, 50), unichr(61888), font=font2, fill=255)
-#        draw.text((70, 50), str(Disk), font=font_ra, fill=255)
-            draw.text((0, 50), str(int(humidity)) + "%", font=font_ra, fill=255)    # чтение влажности
-            draw.text((30, 50), str(int((pressure) * 0.750062)) + "mm", font=font_ra, fill=255) # чтение давления в мм
-            draw.text((80, 50), str(int(temperature)) + unichr(176), font=font_ra, fill=255) # чтение температуры + градус
+            draw.text((0, 0), ("MSK"), font=font_ra, fill=255) # "MSK"
+            draw.text((40, 0), strftime('%H : %M : %S'),font=font_ra, fill=255) # time line to display
+            draw.text((0, 16), unicode("Дата",'utf-8'),font=font_ra, fill=255) # "Data" in Russian language
+            draw.text((40, 16), strftime('%d . %m . %y'),font=font_ra, fill=255) # data line to display
+            draw.text((0, 33), unichr(61931), font=font2, fill=255) # simbol "WiFi"
+            draw.text((40, 33), str(IP), font=font_ra, fill=255) # IP adress to display       
+            draw.text((0, 50), str(int(humidity)) + "%", font=font_ra, fill=255)    # humidity to dispaly
+            draw.text((30, 50), str(int((pressure) * 0.750062)) + "mm", font=font_ra, fill=255) # pressure to dispaly + "mm"
+            draw.text((80, 50), str(int(temperature)) + unichr(176), font=font_ra, fill=255) # temperature to display + "degree simbol"
     sleep(0.5)
 
 finally:
