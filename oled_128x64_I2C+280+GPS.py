@@ -2,11 +2,15 @@
 # -*- coding: utf-8 -*- # вроде как разрешает русские буквы в программе
 #####################################################################################
 # The oled display 128x64 works on the I2C bus, it has the address 3c               #
-# The following pins are involved - 1(3.3V), 6(GND), 3(SDA), 5(SCL)                  #
+# The following pins are involved - 1(3.3V), 6(GND), 3(SDA), 5(SCL)                 #
+# Button connect to 13 pin (switch + 3.3V line)                                     #
+# LED connect to 15 pin (330 Omh resistor to GND)                                   #
 # Bme280 it has the address 0x76                                                    #
-# GPS reciever Ublox m8n, work on GPSG service, adress /dev/ttyS4                   #
+# GPS reciever Ublox m8n, work on GPSG service, adress /dev/ttyS4 (19, 21 pin)      #
 # The device address can be viewed by executing the command "sudo i2cdetect-y 2"    #
-# You will see your current time and date on the display.                           #
+# You will see your current time and date on the display + values from the weather  #
+# sensor + current coordinates, speed and course. The screens are changed by        #
+# pressing the button; the LED is on in the weather data reading mode               #
 # Autor - Pavel (Pavelectric) pavelectric@mail.ru                                   #
 #####################################################################################
 
