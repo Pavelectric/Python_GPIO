@@ -94,18 +94,22 @@ try:
             wpi.digitalWrite(3, 0) # LED is off
             if button:  # if the button is pressed
                 state += 1 # add 1 to "state"
+                sleep(0.2) # eliminate contact bounce
 
         elif state == 1: # if state = 1
             page2() # the "2 page" function works
             wpi.digitalWrite(3, 1) # LED is on
             if button: # if the button is pressed
                 state += 1 # add 1 to "state"
+                sleep(0.2) # eliminate contact bounce
 
         elif state == 2: # if state = 2
             page3() # the function "3 page" works
             wpi.digitalWrite(3, 0) # LED is off
             if button: # if the button is pressed
                 state = 0 # "state is "0" again
+                sleep(0.2) # eliminate contact bounce
+
 finally: # program finalization
     with canvas(device) as draw:
         draw.text((10, 25), ("Program complete"), font=font_ra, fill=255) # message upon correct completion
