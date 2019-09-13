@@ -2,6 +2,13 @@
 Work is carried out with the GPIO interface.
 Installation instructions for supporting GPIO via wiringpi here - [Wiringpi_M4](https://github.com/Pavelectric/WiringPi_M4)
 
+### Check if you have: "smbus" and "PIL" for Python installed.
+If not, do the following:
+
+```$ sudo apt-get install python-smbus```
+```$ sudo apt-get install python-PIL```
+
+
 ### Some pictures of the results:
 
 ##### 1. This is how the result of the execution of the program [_1602_I2C.py_](https://github.com/Pavelectric/Python_GPIO/blob/master/1602_I2C.py) looks
