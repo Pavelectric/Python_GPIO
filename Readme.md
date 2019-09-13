@@ -6,6 +6,7 @@ Installation instructions for supporting GPIO via wiringpi here - [Wiringpi_M4](
 If not, do the following:
 
 ```$ sudo apt-get install python-smbus```
+
 ```$ sudo apt-get install python-PIL```
 
 
